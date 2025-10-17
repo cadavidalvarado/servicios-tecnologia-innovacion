@@ -175,6 +175,20 @@
         .hero-content {
             max-width: 950px;
             animation: slideIn 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(139, 92, 246, 0.5);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+            margin-bottom: 1.5rem;
+            animation: glow 3s ease-in-out infinite;
         }
 
         .hero-content h1 {
@@ -725,6 +739,7 @@
             h2 { font-size: 2rem; }
             .hero-content h1 { font-size: 3rem; }
             .hero-content p { font-size: 1.1rem; }
+            .hero-profile-img { width: 100px; height: 100px; }
             .cta-button { padding: 1.1rem 2.5rem; font-size: 1rem; }
             #valor-unico, #expertise-grid, #trayectoria, #formacion, #stack-tecnologico { padding: 4rem 0; }
             #contacto-footer { padding: 5rem 0 4rem; }
@@ -744,6 +759,7 @@
 
     <section id="hero-section">
         <div class="hero-content">
+            <img src="foto.jpg" alt="Carlos David Alvarado Farfán" class="hero-profile-img">
             <h1>Elimino Fricciones. Acelero Resultados.</h1>
             <p class="value-proposition"><strong>¿Frustrado por la ineficiencia?</strong> Yo me encargo de la complejidad. Implemento sistemas que garantizan la máxima eficiencia y disparan la entrega de valor al mercado.</p>
             <a href="https://wa.me/573152875065?text=Hola%20Carlos,%20me%20interesa%20conversar%20sobre%20un%20proyecto" class="cta-button" target="_blank">Conversemos sobre tu proyecto</a>
@@ -919,7 +935,7 @@
 
     <section id="contacto-footer">
         <div class="container">
-            <h2>Desarrollo, Automatizo y Entrego Valor. ¿Hablamos?</h2>
+            <h2>Desarrollo, Automatizazo y Entreo Valor. ¿Hablamos?</h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem;">Conversemos sobre cómo puedo ayudar a tu organización a alcanzar la siguiente etapa de transformación digital.</p>
             
             <div class="contacto-info">
