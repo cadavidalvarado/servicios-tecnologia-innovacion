@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos David Alvarado Farfán - Liderazgo Tecnológico e Innovación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           RESET Y CONFIGURACIÓN GENERAL
+        ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #f0f0f0;
+            line-height: 1.6;
+            background: #0a0a0f;
+            overflow-x: hidden;
+        }
+
+        /* ==========================================
+           ANIMACIONES Y EFECTOS
+        ========================================== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ==========================================
+           TIPOGRAFÍA
+        ========================================== */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 50%, #06b6d4 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 8s ease infinite;
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: #ffffff;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #b4b4b4;
+        }
+
+        /* ==========================================
+           CONTENEDOR PRINCIPAL
+        ========================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ==========================================
+           BACKGROUND ANIMADO
+        ========================================== */
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .bg-gradient-1 {
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .bg-gradient-2 {
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 20s ease-in-out infinite reverse;
+        }
+
+        /* ==========================================
+           SECCIÓN HERO
+        ========================================== */
+        #hero-section {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 950px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .hero-content h1 {
+             margin-bottom: 1.5rem;
+            font-size: 5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #d1d1d1;
+            line-height: 1.7;
+        }
+
+        .trust-signal {
+            margin-top: 1.5rem;
+            font-size: 1rem !important;
+            color: #8b5cf6 !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            color: white;
+            padding: 1.3rem 3.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5);
+        }
+
+        /* ==========================================
+           SECCIÓN PROPUESTA DE VALOR
+        ========================================== */
+        #valor-unico {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        #valor-unico .container {
+            text-align: center;
+        }
+
+        #valor-unico h2 {
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        #valor-unico h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+            border-radius: 2px;
+        }
+
+        .valor-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.25rem;
+            line-height: 1.8;
+        }
+
+        .valor-highlight {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .valor-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .valor-highlight p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==========================================
+           SECCIÓN EXPERTISE
+        ========================================== */
+        #expertise-grid {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        #expertise-grid h2 {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .expertise-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: linear-gradient(145deg, rgba(20, 20, 30, 0.8) 0%, rgba(30, 30, 45, 0.6) 100%);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+        }
+
+        .expertise-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            transition: all 0.5s ease;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .expertise-card:hover .expertise-icon {
+            transform: rotateY(360deg) scale(1.1);
+        }
+
+        .expertise-card h3 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .expertise-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .expertise-list li {
+            padding: 0.7rem 0;
+            color: #b4b4b4;
+            position: relative;
+            padding-left: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .expertise-list li:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        /* ==========================================
+           SECCIÓN TRAYECTORIA
+        ========================================== */
+        #trayectoria {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        #trayectoria h2 {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .logros-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .logro-item {
+            padding: 2.5rem;
+            background: linear-gradient(145deg, rgba(20, 20, 30, 0.8) 0%, rgba(30, 30, 45, 0.6) 100%);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logro-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .logro-item:hover::after {
+            opacity: 1;
+        }
+
+        .logro-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(6, 182, 212, 0.6);
+            box-shadow: 0 15px 50px rgba(6, 182, 212, 0.3);
+        }
+
+        .logro-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logro-empresa {
+            color: #8b5cf6;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logro-item p {
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==========================================
+           SECCIÓN STACK TECNOLÓGICO
+        ========================================== */
+        #stack-tecnologico {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 15, 0.5) 100%);
+        }
+
+        #stack-tecnologico h2 {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stack-category {
+            background: linear-gradient(145deg, rgba(20, 20, 30, 0.6) 0%, rgba(30, 30, 45, 0.4) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .stack-category:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .stack-category h3 {
+            color: #8b5cf6;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .stack-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .stack-item {
+            background: rgba(139, 92, 246, 0.1);
+            color: #d1d1d1;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stack-item:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* ==========================================
+           SECCIÓN CONTACTO FOOTER
+        ========================================== */
+        #contacto-footer {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        #contacto-footer h2 {
+            margin-bottom: 2rem;
+            font-size: 3.5rem;
+        }
+
+        #contacto-footer > .container > p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            color: #d1d1d1;
+        }
+
+        .contacto-info {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contacto-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contacto-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contacto-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .contacto-item a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contacto-item a:hover {
+            color: #8b5cf6;
+        }
+
+        .footer-copyright {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            color: #7a7a7a;
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================
+           RESPONSIVE - TABLET
+        ========================================== */
+        @media (max-width: 968px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+
+            .hero-content h1 { font-size: 4rem; }
+            .hero-content p { font-size: 1.2rem; }
+
+            .expertise-container {
+                grid-template-columns: 1fr;
+            }
+
+            .logros-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stack-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contacto-info {
+                gap: 3rem;
+            }
+        }
+
+        /* ==========================================
+           RESPONSIVE - MÓVIL
+        ========================================== */
+        @media (max-width: 640px) {
+            .container { padding: 0 1.5rem; }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+
+            .hero-content h1 { font-size: 3rem; }
+            .hero-content p { font-size: 1.1rem; }
+
+            .cta-button {
+                padding: 1.1rem 2.5rem;
+                font-size: 1rem;
+            }
+
+            #valor-unico, #expertise-grid, #trayectoria, #formacion, #stack-tecnologico {
+                padding: 4rem 0;  /* Más ajustado */
+            }
+
+            #contacto-footer {
+                padding: 5rem 0 4rem;  /* En lugar de 8rem 0 4rem */
+            }
+
+            .expertise-card, .logro-item, .stack-category {
+                padding: 2rem 1.5rem;
+            }
+
+            .valor-highlight {
+                padding: 2rem;
+            }
+
+            .contacto-info {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+
+            #contacto-footer h2 {
+                font-size: 2.5rem;
+            }
+
+            .bg-gradient-1, .bg-gradient-2 {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        /* ==========================================
+           SECCIÓN FORMACIÓN Y CERTIFICACIONES
+        ========================================== */
+        #formacion {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        #formacion h2 {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .formacion-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .formacion-item {
+            padding: 2.5rem;
+            background: linear-gradient(145deg, rgba(20, 20, 30, 0.8) 0%, rgba(30, 30, 45, 0.6) 100%);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formacion-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .formacion-item:hover::after {
+            opacity: 1;
+        }
+
+        .formacion-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 15px 50px rgba(139, 92, 246, 0.3);
+        }
+
+        .formacion-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .formacion-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .formacion-institucion {
+            color: #06b6d4;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .formacion-year {
+            color: #8b5cf6;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive para Formación */
+        @media (max-width: 968px) {
+            .formacion-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #formacion {
+                padding: 5rem 0;
+            }
+
+            .formacion-item {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BACKGROUND ANIMADO -->
+    <div class="bg-animated">
+        <div class="bg-gradient-1"></div>
+        <div class="bg-gradient-2"></div>
+    </div>
+
+    <!-- SECCIÓN HERO -->
+    <section id="hero-section">
+        <div class="hero-content">
+            <h1>Elimino Fricciones. Acelero Resultados.</h1>
+            
+           <p class="value-proposition">
+    <strong>¿Frustrado por la ineficiencia?</strong> Yo me encargo de la complejidad. Implemento sistemas que garantizan la máxima eficiencia y disparan la entrega de valor al mercado.
+</p>
+            <a href="#contacto-footer" class="cta-button">Conversemos sobre tu proyecto</a>
+            <p class="trust-signal">Experiencia comprobada en Mercado Libre y Rappi</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PROPUESTA DE VALOR ÚNICA -->
+    <section id="valor-unico">
+        <div class="container">
+            <h2>Transformo la ineficiencia operacional en una ventaja competitiva sostenible.</h2>
+            <div class="valor-content">
+                <p>Con más de una década de experiencia liderando proyectos tecnológicos estratégicos, he ayudado a organizaciones a alcanzar eficiencias del 40% mediante automatización inteligente y arquitecturas de software escalables.</p>
+                <div class="valor-highlight">
+                    <p><strong>Mi enfoque combina visión técnica con liderazgo ágil</strong>, permitiendo a los equipos no solo entregar software de alta calidad, sino transformar completamente la manera en que operan. Desde la implementación de pipelines de entrega continua hasta la integración de sistemas complejos, creo soluciones que escalan con tu negocio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN EXPERTISE (3 COLUMNAS) -->
+    <section id="expertise-grid">
+        <div class="container">
+            <h2>Áreas de Expertise</h2>
+            <div class="expertise-container">
+                <!-- BLOQUE A: AUTOMATIZACIÓN Y SISTEMAS -->
+                <div class="expertise-card">
+                    <div class="expertise-icon">💻</div>
+                    <h3>Desarrollo de Software</h3>
+                    <p>
+                    Sistemas Escalables y Entrega Continua con<strong> Optimización de Costes.</strong>
+                    </p>
+                    <ul class="expertise-list">
+                        <li>Creación de <strong>Soluciones Robustas</strong> y a la medida.</li>
+                        <li><strong>Integración Total</strong> de plataformas y flujo de datos.</li>
+                        <li><strong>Entrega Continua</strong> (rápida) y automatizada de valor.</li>
+                        <li><strong>Monitoreo y Análisis</strong> para decisiones estratégicas.</li>
+                    </ul>
+                </div>
+
+                <!-- BLOQUE B: INTELIGENCIA Y DATA-DRIVEN -->
+                <div class="expertise-card">
+                    <div class="expertise-icon">⚙️</div>
+                    <h3>Automatización de Procesos e Integración Estratégica</h3>
+                    <p>
+                       Transformación de <strong>operaciones complejas </strong> en flujos de trabajo de <strong> máxima eficiencia. </strong>
+                    </p>
+                    <ul class="expertise-list">
+                        <li><strong>Integración total de sistemas</strong> y plataformas clave del negocio.</li>
+                        <li>Automatización de tareas para <strong>liberar al personal</strong> de trabajo repetitivo.</li>
+                        <li>Aseguramiento de la <strong>calidad y velocidad</strong> en la ejecución de los procesos.</li>
+                    </ul>
+                </div>
+
+                <!-- BLOQUE C: LIDERAZGO ÁGIL E INNOVACIÓN -->
+                <div class="expertise-card">
+                    <div class="expertise-icon">🚀</div>
+                    <h3>Liderazgo Ágil e Innovación</h3>
+                    <p>Dirijo equipos multidisciplinarios aplicando metodologías ágiles para maximizar valor y velocidad.</p>
+                    <ul class="expertise-list">
+                        <li>Gestión de equipos ágiles de alto rendimiento</li>
+                        <li>Innovación centrada en el usuario y prototipado rápido</li>
+                        <li>Gestión de stakeholders técnicos y no técnicos</li>
+                        <li>Mentoría técnica y desarrollo de talento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TRAYECTORIA Y LOGROS -->
+    <section id="trayectoria">
+        <div class="container">
+            <h2>Experiencia y Logros Destacados</h2>
+            <div class="logros-grid">
+                <div class="logro-item">
+                    <h3>Automatización Estratégica</h3>
+                    <p class="logro-empresa">Proyectos Empresariales</p>
+                    <p>Implementé soluciones de automatización que redujeron tiempos operativos en un 40%, permitiendo a los equipos enfocarse en actividades de alto valor estratégico.</p>
+                </div>
+
+                <div class="logro-item">
+                    <h3>Desarrollo de Software a la Medida</h3>
+                    <p class="logro-empresa">Del Requerimiento al Producto Funcional</p>
+                    <p>
+                        Dirigí el ciclo completo de desarrollo de software a la medida. Aseguré la entrega de sistemas escalables y funcionales.
+                    </p>
+                </div>
+
+                <div class="logro-item">
+                    <h3>Integración de Sistemas Complejos</h3>
+                    <p class="logro-empresa">Arquitectura de Soluciones</p>
+                    <p>Diseñé e integré arquitecturas modernas que mejoraron la escalabilidad y el rendimiento de aplicaciones críticas de negocio.</p>
+                </div>
+
+                <div class="logro-item">
+                    <h3>Transformación Ágil</h3>
+                    <p class="logro-empresa">Liderazgo de Equipos</p>
+                    <p>Dirigí la adopción de metodologías ágiles en equipos multidisciplinarios, aumentando la velocidad de entrega y la satisfacción del cliente.</p>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FORMACIÓN Y CERTIFICACIONES -->
+    <section id="formacion">
+        <div class="container">
+            <h2>Formación y Certificaciones</h2>
+            <div class="formacion-grid">
+                <div class="formacion-item">
+                    <div class="formacion-icon">🎓</div>
+                    <h3>Ingeniería de Sistemas</h3>
+                    <p class="formacion-institucion">Universidad Industrial de Santander</p>
+                   
+                </div>
+
+                <div class="formacion-item">
+                    <div class="formacion-icon">🎓</div>
+                    <h3>Maestría en Gerencia de la Innovación y el Conocimiento</h3>
+                    <p class="formacion-institucion">Universidad Industrial de Santander</p>
+                    
+                </div>
+
+                <div class="formacion-item certificados-group">
+                    <div class="formacion-icon">📜</div>
+                    <h3>Certificaciones Profesionales</h3>
+                    <ul class="certificados-list">
+                        <li>Scrum Master Certificado</li>
+                        <li>Design Thinking Certificado</li>
+                        <li>Innovation Management Certificado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN STACK TECNOLÓGICO -->
+    <section id="stack-tecnologico">
+        <div class="container">
+            <h2>Stack Tecnológico y Metodológico</h2>
+            <div class="stack-grid">
+                <div class="stack-category">
+                    <h3>Desarrollo & Automatización</h3>
+                    <div class="stack-items">
+                        <span class="stack-item">.Net</span>
+                        <span class="stack-item">Python</span>
+                        <span class="stack-item">JavaScript</span>
+                        <span class="stack-item">SQL</span>
+                        <span class="stack-item">REST APIs</span>
+                        <span class="stack-item">Microservicios</span>
+                        <span class="stack-item">CI/CD</span>
+                        <span class="stack-item">DevOps</span>
+                    </div>
+                </div>
+
+                <div class="stack-category">
+                    <h3>Análisis & Visualización</h3>
+                    <div class="stack-items">
+                        <span class="stack-item">Kibana</span>
+                        <span class="stack-item">Datadog</span>
+                        <span class="stack-item">ETL</span>
+                        <span class="stack-item">Business Intelligence</span>
+                    </div>
+                </div>
+
+                <div class="stack-category">
+                    <h3>Gestión & Metodologías</h3>
+                    <div class="stack-items">
+                        <span class="stack-item">Scrum Master Certificado</span>
+                        <span class="stack-item">Design Thinking</span>
+                        <span class="stack-item">Jira</span>
+                        <span class="stack-item">Metodologías Ágiles</span>
+                        <span class="stack-item">Gestión de Proyectos</span>
+                    </div>
+                </div>
+
+                <div class="stack-category">
+                    <h3>Plataformas & Herramientas</h3>
+                    <div class="stack-items">
+                        <span class="stack-item">Cloud Computing</span>
+                        <span class="stack-item">Arquitectura de Software</span>
+                        <span class="stack-item">Integración de Sistemas</span>
+                        <span class="stack-item">Monitoreo & Observabilidad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO FOOTER -->
+    <section id="contacto-footer">
+        <div class="container">
+            <h2>Desarrollo, Automatizazo y Entreo Valor. ¿Hablamos?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Conversemos sobre cómo puedo ayudar a tu organización a alcanzar la siguiente etapa de transformación digital.</p>
+            
+            <div class="contacto-info">
+                <div class="contacto-item">
+                    <div class="contacto-icon">📧</div>
+                    <a href="mailto:carlosalvaradofarfan@gmail.com">carlosalvaradofarfan@gmail.com</a>
+                </div>
+                <div class="contacto-item">
+                    <div class="contacto-icon">📱</div>
+                    <a href="tel:+573152875065">+57 315 287 5065</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="#hero-section" class="cta-button">Iniciar Conversación</a>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2025 Carlos David Alvarado Farfán. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html
