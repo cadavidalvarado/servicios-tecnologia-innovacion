@@ -6,9 +6,6 @@
     <title>Carlos David Alvarado Farfán - Liderazgo Tecnológico e Innovación</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ==========================================
-           RESET Y CONFIGURACIÓN GENERAL
-        ========================================== */
         * {
             margin: 0;
             padding: 0;
@@ -27,9 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* ==========================================
-           ANIMACIONES Y EFECTOS
-        ========================================== */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
@@ -57,9 +51,44 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ==========================================
-           TIPOGRAFÍA
-        ========================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .scroll-animate {
+            opacity: 0;
+        }
+
+        .scroll-animate.visible {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .scroll-scale {
+            opacity: 0;
+        }
+
+        .scroll-scale.visible {
+            animation: fadeInScale 0.8s ease forwards;
+        }
+
         h1, h2, h3 {
             font-weight: 700;
             line-height: 1.2;
@@ -91,18 +120,12 @@
             color: #b4b4b4;
         }
 
-        /* ==========================================
-           CONTENEDOR PRINCIPAL
-        ========================================== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* ==========================================
-           BACKGROUND ANIMADO
-        ========================================== */
         .bg-animated {
             position: fixed;
             top: 0;
@@ -138,9 +161,6 @@
             animation: float 20s ease-in-out infinite reverse;
         }
 
-        /* ==========================================
-           SECCIÓN HERO
-        ========================================== */
         #hero-section {
             min-height: 30vh;
             display: flex;
@@ -158,7 +178,7 @@
         }
 
         .hero-content h1 {
-             margin-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
             font-size: 5rem;
             line-height: 1.1;
         }
@@ -214,9 +234,6 @@
             box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5);
         }
 
-        /* ==========================================
-           SECCIÓN PROPUESTA DE VALOR
-        ========================================== */
         #valor-unico {
             padding: 8rem 0;
             position: relative;
@@ -279,9 +296,6 @@
             z-index: 1;
         }
 
-        /* ==========================================
-           SECCIÓN EXPERTISE
-        ========================================== */
         #expertise-grid {
             padding: 8rem 0;
             position: relative;
@@ -389,9 +403,6 @@
             transform: translateX(5px);
         }
 
-        /* ==========================================
-           SECCIÓN TRAYECTORIA
-        ========================================== */
         #trayectoria {
             padding: 8rem 0;
             position: relative;
@@ -466,224 +477,6 @@
             z-index: 1;
         }
 
-        /* ==========================================
-           SECCIÓN STACK TECNOLÓGICO
-        ========================================== */
-        #stack-tecnologico {
-            padding: 8rem 0;
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 15, 0.5) 100%);
-        }
-
-        #stack-tecnologico h2 {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .stack-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .stack-category {
-            background: linear-gradient(145deg, rgba(20, 20, 30, 0.6) 0%, rgba(30, 30, 45, 0.4) 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(139, 92, 246, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .stack-category:hover {
-            border-color: rgba(139, 92, 246, 0.4);
-            transform: translateY(-5px);
-        }
-
-        .stack-category h3 {
-            color: #8b5cf6;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .stack-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .stack-item {
-            background: rgba(139, 92, 246, 0.1);
-            color: #d1d1d1;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .stack-item:hover {
-            background: rgba(139, 92, 246, 0.2);
-            border-color: rgba(139, 92, 246, 0.4);
-            transform: scale(1.05);
-        }
-
-        /* ==========================================
-           SECCIÓN CONTACTO FOOTER
-        ========================================== */
-        #contacto-footer {
-            padding: 8rem 0 4rem;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        #contacto-footer h2 {
-            margin-bottom: 2rem;
-            font-size: 3.5rem;
-        }
-
-        #contacto-footer > .container > p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-            color: #d1d1d1;
-        }
-
-        .contacto-info {
-            display: flex;
-            justify-content: center;
-            gap: 5rem;
-            margin: 4rem 0;
-            flex-wrap: wrap;
-        }
-
-        .contacto-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .contacto-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .contacto-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
-        }
-
-        .contacto-item a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .contacto-item a:hover {
-            color: #8b5cf6;
-        }
-
-        .footer-copyright {
-            margin-top: 5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(139, 92, 246, 0.2);
-            color: #7a7a7a;
-            font-size: 0.95rem;
-        }
-
-        /* ==========================================
-           RESPONSIVE - TABLET
-        ========================================== */
-        @media (max-width: 968px) {
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.5rem; }
-
-            .hero-content h1 { font-size: 4rem; }
-            .hero-content p { font-size: 1.2rem; }
-
-            .expertise-container {
-                grid-template-columns: 1fr;
-            }
-
-            .logros-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stack-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contacto-info {
-                gap: 3rem;
-            }
-        }
-
-        /* ==========================================
-           RESPONSIVE - MÓVIL
-        ========================================== */
-        @media (max-width: 640px) {
-            .container { padding: 0 1.5rem; }
-
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-
-            .hero-content h1 { font-size: 3rem; }
-            .hero-content p { font-size: 1.1rem; }
-
-            .cta-button {
-                padding: 1.1rem 2.5rem;
-                font-size: 1rem;
-            }
-
-            #valor-unico, #expertise-grid, #trayectoria, #formacion, #stack-tecnologico {
-                padding: 4rem 0;  /* Más ajustado */
-            }
-
-            #contacto-footer {
-                padding: 5rem 0 4rem;  /* En lugar de 8rem 0 4rem */
-            }
-
-            .expertise-card, .logro-item, .stack-category {
-                padding: 2rem 1.5rem;
-            }
-
-            .valor-highlight {
-                padding: 2rem;
-            }
-
-            .contacto-info {
-                flex-direction: column;
-                gap: 2.5rem;
-            }
-
-            #contacto-footer h2 {
-                font-size: 2.5rem;
-            }
-
-            .bg-gradient-1, .bg-gradient-2 {
-                width: 400px;
-                height: 400px;
-            }
-        }
-
-        /* ==========================================
-           SECCIÓN FORMACIÓN Y CERTIFICACIONES
-        ========================================== */
         #formacion {
             padding: 8rem 0;
             position: relative;
@@ -768,53 +561,196 @@
             z-index: 1;
         }
 
-        .formacion-year {
-            color: #8b5cf6;
-            font-weight: 500;
-            font-size: 0.95rem;
+        .certificados-list {
+            list-style: none;
+            margin-top: 1rem;
             position: relative;
             z-index: 1;
         }
 
-        /* Responsive para Formación */
+        .certificados-list li {
+            padding: 0.5rem 0;
+            color: #b4b4b4;
+        }
+
+        #stack-tecnologico {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 15, 0.5) 100%);
+        }
+
+        #stack-tecnologico h2 {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stack-category {
+            background: linear-gradient(145deg, rgba(20, 20, 30, 0.6) 0%, rgba(30, 30, 45, 0.4) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .stack-category:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .stack-category h3 {
+            color: #8b5cf6;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .stack-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .stack-item {
+            background: rgba(139, 92, 246, 0.1);
+            color: #d1d1d1;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stack-item:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: scale(1.05);
+        }
+
+        #contacto-footer {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        #contacto-footer h2 {
+            margin-bottom: 2rem;
+            font-size: 3.5rem;
+        }
+
+        #contacto-footer > .container > p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            color: #d1d1d1;
+        }
+
+        .contacto-info {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contacto-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contacto-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contacto-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .contacto-item a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contacto-item a:hover {
+            color: #8b5cf6;
+        }
+
+        .footer-copyright {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            color: #7a7a7a;
+            font-size: 0.95rem;
+        }
+
         @media (max-width: 968px) {
-            .formacion-grid {
-                grid-template-columns: 1fr;
-            }
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            .hero-content h1 { font-size: 4rem; }
+            .hero-content p { font-size: 1.2rem; }
+            .expertise-container { grid-template-columns: 1fr; }
+            .logros-grid { grid-template-columns: 1fr; }
+            .formacion-grid { grid-template-columns: 1fr; }
+            .stack-grid { grid-template-columns: 1fr; }
+            .contacto-info { gap: 3rem; }
         }
 
         @media (max-width: 640px) {
-            #formacion {
-                padding: 5rem 0;
-            }
-
-            .formacion-item {
-                padding: 2rem 1.5rem;
-            }
+            .container { padding: 0 1.5rem; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .hero-content h1 { font-size: 3rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .cta-button { padding: 1.1rem 2.5rem; font-size: 1rem; }
+            #valor-unico, #expertise-grid, #trayectoria, #formacion, #stack-tecnologico { padding: 4rem 0; }
+            #contacto-footer { padding: 5rem 0 4rem; }
+            .expertise-card, .logro-item, .formacion-item, .stack-category { padding: 2rem 1.5rem; }
+            .valor-highlight { padding: 2rem; }
+            .contacto-info { flex-direction: column; gap: 2.5rem; }
+            #contacto-footer h2 { font-size: 2.5rem; }
+            .bg-gradient-1, .bg-gradient-2 { width: 400px; height: 400px; }
         }
     </style>
 </head>
 <body>
-    <!-- BACKGROUND ANIMADO -->
     <div class="bg-animated">
         <div class="bg-gradient-1"></div>
         <div class="bg-gradient-2"></div>
     </div>
 
-    <!-- SECCIÓN HERO -->
     <section id="hero-section">
         <div class="hero-content">
             <h1>Elimino Fricciones. Acelero Resultados.</h1>
-            
-           <p class="value-proposition">
-    <strong>¿Frustrado por la ineficiencia?</strong> Yo me encargo de la complejidad. Implemento sistemas que garantizan la máxima eficiencia y disparan la entrega de valor al mercado.
-</p>
+            <p class="value-proposition"><strong>¿Frustrado por la ineficiencia?</strong> Yo me encargo de la complejidad. Implemento sistemas que garantizan la máxima eficiencia y disparan la entrega de valor al mercado.</p>
             <a href="#contacto-footer" class="cta-button">Conversemos sobre tu proyecto</a>
             <p class="trust-signal">Experiencia comprobada en Mercado Libre y Rappi</p>
         </div>
     </section>
 
-    <!-- SECCIÓN PROPUESTA DE VALOR ÚNICA -->
     <section id="valor-unico">
         <div class="container">
             <h2>Transformo la ineficiencia operacional en una ventaja competitiva sostenible.</h2>
@@ -827,18 +763,14 @@
         </div>
     </section>
 
-    <!-- SECCIÓN EXPERTISE (3 COLUMNAS) -->
     <section id="expertise-grid">
         <div class="container">
             <h2>Áreas de Expertise</h2>
             <div class="expertise-container">
-                <!-- BLOQUE A: AUTOMATIZACIÓN Y SISTEMAS -->
                 <div class="expertise-card">
                     <div class="expertise-icon">💻</div>
                     <h3>Desarrollo de Software</h3>
-                    <p>
-                    Sistemas Escalables y Entrega Continua con<strong> Optimización de Costes.</strong>
-                    </p>
+                    <p>Sistemas Escalables y Entrega Continua con<strong> Optimización de Costes.</strong></p>
                     <ul class="expertise-list">
                         <li>Creación de <strong>Soluciones Robustas</strong> y a la medida.</li>
                         <li><strong>Integración Total</strong> de plataformas y flujo de datos.</li>
@@ -847,13 +779,10 @@
                     </ul>
                 </div>
 
-                <!-- BLOQUE B: INTELIGENCIA Y DATA-DRIVEN -->
                 <div class="expertise-card">
                     <div class="expertise-icon">⚙️</div>
                     <h3>Automatización de Procesos e Integración Estratégica</h3>
-                    <p>
-                       Transformación de <strong>operaciones complejas </strong> en flujos de trabajo de <strong> máxima eficiencia. </strong>
-                    </p>
+                    <p>Transformación de <strong>operaciones complejas </strong> en flujos de trabajo de <strong> máxima eficiencia. </strong></p>
                     <ul class="expertise-list">
                         <li><strong>Integración total de sistemas</strong> y plataformas clave del negocio.</li>
                         <li>Automatización de tareas para <strong>liberar al personal</strong> de trabajo repetitivo.</li>
@@ -861,7 +790,6 @@
                     </ul>
                 </div>
 
-                <!-- BLOQUE C: LIDERAZGO ÁGIL E INNOVACIÓN -->
                 <div class="expertise-card">
                     <div class="expertise-icon">🚀</div>
                     <h3>Liderazgo Ágil e Innovación</h3>
@@ -877,7 +805,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN TRAYECTORIA Y LOGROS -->
     <section id="trayectoria">
         <div class="container">
             <h2>Experiencia y Logros Destacados</h2>
@@ -891,9 +818,7 @@
                 <div class="logro-item">
                     <h3>Desarrollo de Software a la Medida</h3>
                     <p class="logro-empresa">Del Requerimiento al Producto Funcional</p>
-                    <p>
-                        Dirigí el ciclo completo de desarrollo de software a la medida. Aseguré la entrega de sistemas escalables y funcionales.
-                    </p>
+                    <p>Dirigí el ciclo completo de desarrollo de software a la medida. Aseguré la entrega de sistemas escalables y funcionales.</p>
                 </div>
 
                 <div class="logro-item">
@@ -907,13 +832,10 @@
                     <p class="logro-empresa">Liderazgo de Equipos</p>
                     <p>Dirigí la adopción de metodologías ágiles en equipos multidisciplinarios, aumentando la velocidad de entrega y la satisfacción del cliente.</p>
                 </div>
-
-                
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN FORMACIÓN Y CERTIFICACIONES -->
     <section id="formacion">
         <div class="container">
             <h2>Formación y Certificaciones</h2>
@@ -922,14 +844,12 @@
                     <div class="formacion-icon">🎓</div>
                     <h3>Ingeniería de Sistemas</h3>
                     <p class="formacion-institucion">Universidad Industrial de Santander</p>
-                   
                 </div>
 
                 <div class="formacion-item">
                     <div class="formacion-icon">🎓</div>
                     <h3>Maestría en Gerencia de la Innovación y el Conocimiento</h3>
                     <p class="formacion-institucion">Universidad Industrial de Santander</p>
-                    
                 </div>
 
                 <div class="formacion-item certificados-group">
@@ -945,7 +865,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN STACK TECNOLÓGICO -->
     <section id="stack-tecnologico">
         <div class="container">
             <h2>Stack Tecnológico y Metodológico</h2>
@@ -998,7 +917,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CONTACTO FOOTER -->
     <section id="contacto-footer">
         <div class="container">
             <h2>Desarrollo, Automatizazo y Entreo Valor. ¿Hablamos?</h2>
@@ -1024,5 +942,50 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function observeElements() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const animateElements = document.querySelectorAll(
+                '#valor-unico h2, #valor-unico .valor-content > p, .valor-highlight, ' +
+                '.expertise-card, #trayectoria h2, .logro-item, ' +
+                '#formacion h2, .formacion-item, #stack-tecnologico h2, ' +
+                '.stack-category, #contacto-footer h2, #contacto-footer > .container > p, ' +
+                '.contacto-item'
+            );
+
+            animateElements.forEach((element, index) => {
+                if (element.classList.contains('expertise-card') || 
+                    element.classList.contains('logro-item') ||
+                    element.classList.contains('formacion-item') ||
+                    element.classList.contains('stack-category')) {
+                    element.classList.add('scroll-scale');
+                } else {
+                    element.classList.add('scroll-animate');
+                }
+                
+                element.style.animationDelay = `${(index % 4) * 0.1}s`;
+                observer.observe(element);
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', observeElements);
+        } else {
+            observeElements();
+        }
+    </script>
 </body>
-</html
+</html>
